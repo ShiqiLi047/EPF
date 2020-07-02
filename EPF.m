@@ -1,7 +1,8 @@
 function EPF_value = EPF1( Image_handle,Image_origin )
-% EPF ��Edge-preserving factor
+% EPF  Edge-preserving factor
 % 2020.05.03 
-% y�Ǵ�������ͼ����x��groundtruth
+% y means the compared image
+% x means groundtruth
 % Image_handle: y
 % Image_origin: x
 % EPF =
