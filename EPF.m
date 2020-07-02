@@ -14,6 +14,8 @@ function EPF_value = EPF1( Image_handle,Image_origin )
 
 [m_ori,n_ori,~] = size(Image_origin);
 [m_rec,n_rec,~] = size(Image_handle);
+
+%% make sure the images have same size
 if m_rec > m_ori
     l_r = Image_handle(3:m_ori+2,:,1);
     l_g = Image_handle(3:m_ori+2,:,2);
@@ -21,10 +23,11 @@ if m_rec > m_ori
     Image_handle = cat(3,l_r,l_g,l_b);
 end
 
-
+%% turn the color image to gray one
 Image_handle_gray = (rgb2gray(Image_handle))/255;
 Image_origin_gray = (rgb2gray(Image_origin))/255;
 
+%% fliter kernal 
 lab=[0 1 0;1 -4 1; 0 1 0];
 
 lab_I1 = filter2(lab,Image_handle_gray,'same');
